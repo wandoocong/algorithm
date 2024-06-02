@@ -9,8 +9,6 @@ public class ValidPalindrome {
         System.out.println("answer = " + answer);
         boolean answer2 = isPalindromeV2(str);
         System.out.println("answer2 = " + answer2);
-
-
     }
 
     public static boolean isPalindrome(String s){
@@ -36,7 +34,6 @@ public class ValidPalindrome {
     }
 
     public static boolean isPalindromeV2(String s){
-
         String s_filtered = s.replaceAll("[^A-Za-z0-9]", "").toLowerCase();
         String s_reversed = new StringBuilder(s_filtered).reverse().toString();
         return s_filtered.equals(s_reversed);
