@@ -24,6 +24,7 @@ public class ReverseLinkedList {
         ReverseLinkedList reverseLinkedList = new ReverseLinkedList();
 
         ListNode reverseNode = reverseLinkedList.reverse(list1);
+
         while (reverseNode != null) {
             System.out.println(reverseNode.val);
             reverseNode = reverseNode.next;

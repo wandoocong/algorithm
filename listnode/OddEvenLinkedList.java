@@ -71,7 +71,6 @@ public class OddEvenLinkedList {
                     while (temp.next != null) {
                         temp = temp.next;
                     }
-
                     temp.next = newOne;
                 }
             } else {
