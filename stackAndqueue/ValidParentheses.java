@@ -18,6 +18,8 @@ public class ValidParentheses {
     public boolean isValid(String s) {
 
         Deque<Character> stack = new ArrayDeque<>();
+
+        // 이런식으로 생성하는것은 좋지 않은 pattern 이다.
         Map<Character, Character> table = new HashMap<>() {{
             put(')', '(');
             put(']', '[');

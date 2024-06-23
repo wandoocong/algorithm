@@ -4,6 +4,9 @@ import java.util.ArrayDeque;
 import java.util.Arrays;
 import java.util.Deque;
 
+// #################################################################
+// 거리는 index 차이로 계산 @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+// #################################################################
 public class DailyTemperature {
     public static void main(String[] args) {
         int[] temperature = {23, 24, 25, 21, 19, 22, 26, 23};

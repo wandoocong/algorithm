@@ -4,7 +4,7 @@ import java.util.List;
 
 public class OddEvenLinkedList {
 
-    public static class ListNode {
+    private static class ListNode {
         int val;
         ListNode next;
 
