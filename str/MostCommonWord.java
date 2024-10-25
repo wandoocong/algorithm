@@ -38,6 +38,7 @@ public class MostCommonWord {
 
 //        System.out.println("counts.entrySet() = " + counts.entrySet());
         List<Map.Entry<String, Integer>> list = new ArrayList<>(counts.entrySet());
+
         return Collections.max(list, Map.Entry.comparingByValue()).getKey();
     }
 

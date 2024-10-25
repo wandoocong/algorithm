@@ -1,8 +1,14 @@
+import str.ReverseString;
+
 import java.util.*;
 
 public class TestSampleCode {
 
     public static void main(String[] args) {
+
+        // 문자열 배열 출력
+        char[] a = {'1', '2', '3', 'e', 'c', 'a', 'r'};
+        System.out.println("a = " + Arrays.toString(a));
 
         // List
         List<Integer> list = Arrays.asList(1, 2, 3);
@@ -35,5 +41,11 @@ public class TestSampleCode {
             }
         });
         System.out.println("str = " + str);
+
+        List<String> letterList = new ArrayList<>();
+        letterList.add("asd");
+        letterList.add("zxc");
+        Object[] letterObj = letterList.toArray(new String[0]);
+        System.out.println("letterArr = " + Arrays.toString(letterObj));
     }
 }

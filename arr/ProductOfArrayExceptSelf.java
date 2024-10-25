@@ -20,7 +20,7 @@ public class ProductOfArrayExceptSelf {
         }
 
         p = 1;
-        for (int i = nums.length-1; i > 0; i--) {
+        for (int i = nums.length-1; i >= 0; i--) {
             result[i] *= p;
             p *= nums[i];
         }

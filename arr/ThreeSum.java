@@ -70,11 +70,11 @@ public class ThreeSum {
                 continue;
             }
             for (int j = i + 1; j < nums.length - 1; j++) {
-                if(j> 0 && nums[j] == nums[j-1]){
+                if(j> i+1 && nums[j] == nums[j-1]){
                     continue;
                 }
                 for (int k = j + 1; k < nums.length; k++) {
-                    if(k> 0 && nums[k] == nums[k-1]){
+                    if(k> j+1 && nums[k] == nums[k-1]){
                         continue;
                     }
                     if (nums[i] + nums[j] + nums[k] == 0) {
