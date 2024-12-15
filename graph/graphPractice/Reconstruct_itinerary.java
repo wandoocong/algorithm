@@ -1,9 +1,6 @@
-package graph;
+package graph.graphPractice;
 
 import java.util.*;
-
-import static java.util.Collections.reverse;
-import static java.util.Collections.reverseOrder;
 
 public class Reconstruct_itinerary {
 
@@ -29,20 +26,18 @@ public class Reconstruct_itinerary {
 
         List<String> answers = new ArrayList<>();
 
-        dfsW(answers, fromToMap, "JFK");
+        dfs(answers, fromToMap, "JFK");
 
         System.out.println("answers = " + answers);
     }
 
-    public static void dfsW(List<String> results, Map<String, PriorityQueue<String>> fromToMap, String from) {
-
-        results.add(from);
+    public static void dfs(List<String> results, Map<String, PriorityQueue<String>> fromToMap, String from) {
 
         // fromToMap 에 특정 Key 값을 갖고 있고, 해당 value 값이 비어있지 않을때
         while (fromToMap.containsKey(from) && !fromToMap.get(from).isEmpty()) {
-            dfsW(results, fromToMap, fromToMap.get(from).poll());
+            dfs(results, fromToMap, fromToMap.get(from).poll());
         }
         // 앞에다 추가
-//        results.add(0, from);
+        results.add(0, from);
     }
 }

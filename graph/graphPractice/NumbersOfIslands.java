@@ -1,4 +1,4 @@
-package graph;
+package graph.graphPractice;
 
 public class NumbersOfIslands {
 

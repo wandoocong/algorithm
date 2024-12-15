@@ -18,7 +18,7 @@ public class KClosestPointsToOrigin {
         System.out.println("answers = " + Arrays.deepToString(answers));
     }
 
-    static class Points {
+    private static class Points {
         double distance;
         int[] point;
 
@@ -37,7 +37,7 @@ public class KClosestPointsToOrigin {
         for (int[] point : points) {
             double distance = Math.sqrt((long) point[0] * point[0] + (long) point[1] * point[1]);
             pq.add(new Points(distance, point));
-            // point = [3, 3]
+            // point = [3,  3]
             // point = [6, -1]
         }
 
@@ -45,7 +45,7 @@ public class KClosestPointsToOrigin {
         for (int i = 0; i < k; i++) {
             // 이런 표현식이 조금 헷갈리네
             result[i] = pq.poll().point;
-            System.out.println("result = " + Arrays.toString(result[i]));
+            System.out.println("result["+ i+ "]= " + Arrays.toString(result[i]));
         }
         return result;
     }
