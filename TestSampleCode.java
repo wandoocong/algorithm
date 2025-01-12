@@ -1,15 +1,8 @@
-import str.ReverseString;
-
 import java.util.*;
 
 public class TestSampleCode {
 
     public static void main(String[] args) {
-
-        // StringBuilder
-        StringBuilder stringBuilder = new StringBuilder();
-        StringBuilder a1 = new StringBuilder(stringBuilder).append('a');
-        System.out.println("StringBuilder test = " + a1);
 
         // 해쉬맵 && Iterator
         Map<Integer, String> map = new HashMap<>();
@@ -25,28 +18,8 @@ public class TestSampleCode {
         }
         System.out.println("####################################");
 
-        // 문자열 배열 출력
-        char[] a = {'1', '2', '3', 'e', 'c', 'a', 'r'};
-        System.out.println("a = " + Arrays.toString(a));
 
-        System.out.println("####################################");
 
-        // List
-        List<Integer> list = Arrays.asList(1, 2, 3);
-        ArrayList<Integer> testCopyList = new ArrayList<>(list);
-        System.out.println("testCopyList = " + testCopyList);
-        System.out.println("list = " + list);
-
-        List<Character> chrlist = List.of('a', 'b', 'c');
-        List<String> strlist = List.of("aba", "ASzzz");
-
-        System.out.println("a = " + chrlist);
-
-        int[] nums = {1, 2, 4};
-        ArrayList<int[]> ints = new ArrayList<>(Arrays.asList(nums));
-        System.out.println("ints = " + ints);
-
-        System.out.println("####################################");
 
         // Stack
         Deque<Integer> stack = new ArrayDeque<>();
@@ -75,6 +48,7 @@ public class TestSampleCode {
         List<String> letterList = new ArrayList<>();
         letterList.add("asd");
         letterList.add("zxc");
+        letterList.add("FFA");
         Object[] letterObj = letterList.toArray(new String[0]);
         System.out.println("letterArr = " + Arrays.toString(letterObj));
     }
