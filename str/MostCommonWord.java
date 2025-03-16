@@ -28,6 +28,7 @@ public class MostCommonWord {
 
         // 전처리 작업
         // 모든 단어 분리
+                                   // \W+, 문자가 아닌 모든 연속적인 것
         String [] words = p.replaceAll("\\W+", " ").toLowerCase().split(" ");
 
         for (String w : words) {
