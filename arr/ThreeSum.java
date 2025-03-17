@@ -9,11 +9,11 @@ public class ThreeSum {
         int[] arr2 = {-1, 0, 1, 2, -1, -5};
 
         ThreeSum threeSum = new ThreeSum();
-        List<List<Integer>> lists = threeSum.threeSum(arr);
+        List<List<Integer>> lists = threeSum.threeSum(arr2);
         System.out.println("threeSum = " + lists);
 
-        List<List<Integer>> lists2 = threeSum.threeSum2(arr2);
-        System.out.println("lists2 = " + lists2);
+        /*List<List<Integer>> lists2 = threeSum.threeSum2(arr2);
+        System.out.println("lists2 = " + lists2);*/
 
     }
 
@@ -26,6 +26,7 @@ public class ThreeSum {
         for (int i = 0; i < nums.length-2; i++) {
 
             // -4, -4, -4, -3, 2, -1, 8 >> 요 중복 막아줌
+            // 중복값 건너 뛰기 , i / left / right
             if (i > 0 && nums[i] == nums[i - 1]) {
                 continue;
             }
@@ -34,9 +35,9 @@ public class ThreeSum {
             right = nums.length - 1;
             while (left < right) {
                 sum = nums[i] + nums[left] + nums[right];
-                if (sum > 0) {
+                if (sum < 0) {
                     left ++;
-                } else if (sum < 0) {
+                } else if (sum > 0) {
                     right--;
                 } else {
                     results.add(Arrays.asList(nums[i], nums[left], nums[right]));
