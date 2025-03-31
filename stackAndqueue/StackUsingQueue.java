@@ -11,6 +11,7 @@ public class StackUsingQueue {
         MyStack myStack = new MyStack();
         myStack.push(1);
         myStack.push(2);
+        myStack.push(3);
         System.out.println(myStack.pop());
         System.out.println(myStack.pop());
     }
@@ -22,8 +23,11 @@ public class StackUsingQueue {
         public void push(int x) {
             queue.add(x);
             for (int i = 1; i<queue.size(); i++) {
-                queue.add(queue.remove());
+                int temp = queue.remove();
+                System.out.println("queue.remove() = " +temp);
+                queue.add(temp);
             }
+            System.out.println("queue = " + queue);
         }
 
         public int pop() {

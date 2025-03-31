@@ -4,54 +4,19 @@ import java.util.*;
 
 public class Temp {
     public static void main(String[] args) {
-        /*String j = "aA";
-        String s = "aAAbbbb";
 
-        int i = numberJewels(j, s);
-        System.out.println("i = " + i);*/
-
-        /*String str = "abcabcbbc";
-        int i = lengthOfLongestSubstring(str);
-        System.out.println("i = " + i);*/
-
-        int[] nums = {1, 1, 1, 2, 2, 3, 4,4,4,4};
+        int[] nums = {1, 1, 1, 2, 2, 3, 4};
         int k = 2;
 
-        int[] ints = topKPriority(nums, k);
-        System.out.println("ints = " + Arrays.toString(ints));
 
+        int[] answers = topKFrequent(nums, k);
+        System.out.println(Arrays.toString(answers));
 
+        /*int[] ints = topKPriority(nums, k);
+        System.out.println("ints = " + Arrays.toString(ints));*/
     }
 
-    public static int[] topKPriority(int[] nums, int k) {
-        Map<Integer, Integer> map = new HashMap<>();
-        for (int a : nums) {
-            map.put(a, map.getOrDefault(a, 0) + 1);
-        }
 
-        PriorityQueue<int[]> queue = new PriorityQueue<>(new Comparator<int[]>() {
-            @Override
-            public int compare(int[] o1, int[] o2) {
-                /*if(o2[1] > o1[1]) {
-                    return 1;
-                }else if(o1[1] > o2[1]) {
-                    return -1;
-                }else {
-                    return 0;
-                }*/
-                return o2[1] - o1[1];
-            }
-        });
-        for (int a : map.keySet()) {
-            queue.add(new int[]{a, map.get(a)});
-        }
-
-        int result[] = new int[k];
-        for (int i = 0; i < k; i++) {
-            result[i] = queue.poll()[0];
-        }
-        return result;
-    }
     public static int[] topKFrequent(int[] nums, int k) {
         Map<Integer, Integer> map = new HashMap<>();
             //num , freq
@@ -60,21 +25,22 @@ public class Temp {
         }
 
         Map < Integer, List<Integer>> reverseMap = new HashMap<>();
-                // freq, num
-        for (int a : map.keySet()) {
-            Integer frequency = map.get(a);
+                // freq, num [List 로 추가]
 
-            List<Integer> orDefault = reverseMap.getOrDefault(frequency, new ArrayList<>());
-            orDefault.add(a);
+        for (int num : map.keySet()) {
+            Integer frequency = map.get(num);
 
-            reverseMap.put(frequency, orDefault);
+            if (!reverseMap.containsKey(frequency)) {
+                reverseMap.put(frequency, new ArrayList<Integer>());
+            }
+            reverseMap.get(frequency).add(num);
         }
 
         int[] ints = new int[k];
         int index = 0;
-        for (int i = nums.length; i > 0 && index <k; i--) {
-            if (reverseMap.containsKey(i)) {
-                for (int num : reverseMap.get(i)) {
+        for (int fre = nums.length; fre > 0 && index <k; fre--) {
+            if (reverseMap.containsKey(fre)) {
+                for (int num : reverseMap.get(fre)) {
                     ints[index] = num;
                     index++;
                 }
@@ -83,40 +49,58 @@ public class Temp {
 
         return ints;
     }
+
+    //  int[] nums = {1, 1, 1, 2, 2, 3, 4};
+    //  int k = 2;
+    public static int[] topKPriority(int[] nums, int k) {
+        Map<Integer, Integer> map = new HashMap<>();
+        //num , freq
+        for (int a : nums) {
+            map.put(a, map.getOrDefault(a, 0) + 1);
+        }
+
+        PriorityQueue<int[]> pq = new PriorityQueue<>((a,b) -> b[1] - a[1]);
+
+        for (int elem : map.keySet()) {
+            pq.add(new int[]{elem, map.get(elem)});
+        }
+        int[] ints = new int[k];
+        for (int i = 0; i < k; i++) {
+            ints[i] = pq.poll()[0];
+        }
+        return ints;
+    }
     public static int lengthOfLongestSubstring(String s) {
 
-        int left = 0;
-        int right = 0;
-        int MaxLen = 0;
-        Map<Character, Integer> used = new HashMap<>();
+        HashMap<Character, Integer> used = new HashMap<>();
+        int left = 0, right = 0, maxLength =0;
+        for (char c : s.toCharArray()) {
 
-        for (Character c : s.toCharArray()) {
-
+            // abc |a|
             if (used.containsKey(c) && left <= used.get(c)) {
                 left = used.get(c) + 1;
             } else {
-                MaxLen = Math.max(MaxLen, right - left + 1);
+                maxLength = Math.max(maxLength, right - left + 1);
             }
 
             used.put(c, right);
             right++;
         }
-
-        return MaxLen;
+        return maxLength;
     }
-    public static int numberJewels(String J, String S) {
-        Map<Character, Integer> freq = new HashMap<>();
-        for (Character c : J.toCharArray()) {
-            freq.put(c, freq.getOrDefault(c, 0)+1);
+                                            //aA    aaabaac
+    public static int numJewelsInStones(String J, String S) {
+
+        int cnt = 0;
+        Set<Character> set = new HashSet<>();
+        for (char a : J.toCharArray()) {
+            set.add(a);
         }
-        System.out.println("freq.values() = " + freq.values());
-        int ans =0;
-        for (Character c : S.toCharArray()) {
-            if (freq.containsKey(c)) {
-                ans += 1;
+        for (char a : S.toCharArray()) {
+            if (set.contains(a)) {
+                cnt++;
             }
         }
-
-        return ans;
+        return cnt;
     }
 }

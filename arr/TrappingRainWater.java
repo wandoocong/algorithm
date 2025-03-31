@@ -24,8 +24,10 @@ public class TrappingRainWater {
             leftMax = Math.max(height[left], leftMax);
             rightMax = Math.max(height[right], rightMax);
 
+            //오른쪽 장벽이 더 높으면
             if (leftMax <= rightMax) {
                 volume += leftMax - height[left];
+                //왼쪽을 채워가고
                 left++;
             } else {
                 volume += rightMax - height[right];

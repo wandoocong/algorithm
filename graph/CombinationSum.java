@@ -23,6 +23,7 @@ public class CombinationSum {
             return;
         }
 
+        //여기서 i를 index 부터 넣는것이 조합 문제 풀이에서 중요!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         for (int i = index; i < candidates.length; i++) {
 
             path.add(candidates[i]);

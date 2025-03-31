@@ -70,17 +70,8 @@ public class MergeKSortedLists {
             }
         }
 
-//        while(!pq.isEmpty()){
-//            System.out.println("pq.poll().val = " + pq.poll().val);
-//        }
-
-//        맨처음에는 아래처럼만 insert 됨
-//        pq.poll().val = 1
-//        pq.poll().val = 1
-//        pq.poll().val = 2
-
         while (!pq.isEmpty()) {
-            tail.next = pq.poll();
+            tail.next = pq.poll(); // poll 시 node 덩어리 전체가 poll 된다.
             tail = tail.next;
 
             if (tail.next != null) {

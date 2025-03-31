@@ -43,6 +43,8 @@ public class ShortestGameMap {
             Position cur = pq.poll();
 
             if (!dist.containsKey(cur.y * 1000 + cur.x)) {
+
+                //각 좌표별 Key Value 넣기
                 dist.put(cur.y * 1000 + cur.x, cur);
 
                 findPath(cur.y, cur.x+1, cur.distance, maps);

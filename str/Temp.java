@@ -5,39 +5,35 @@ import java.util.*;
 
 public class Temp {
 
-    int left, maxLen;
+
 
     public static void main(String[] args) {
-        String str = "dcbabcdd";
-        String answer = "";
+        String str = "Ross hit a ball, the hit BALL flew far away after it was hit.";
+        String[] banned = {"hit"};
 
-        Temp temp = new Temp();
-
-        answer = temp.longest(str);
+        String answer = mostCommonWord(str, banned);
         System.out.println("answer = " + answer);
-    }
-
-    public String longest(String s) {
-        int len = s.length();
-
-        if(len<2) return s;
-
-        for (int i = 0; i < len - 1; i++) {
-            extendPalindro(s, i, i + 1);
-            extendPalindro(s, i, i + 2);
-        }
-
-        return s.substring(left, left + maxLen);
-    }
-    public void extendPalindro(String s, int i, int j) {
-        while (i >= 0 && j < s.length() && s.charAt(i) == s.charAt(j)) {
-            i--;
-            j++;
-        }
-        if (maxLen < j - i - 1) {
-            left = i + 1;
-            maxLen = j - i - 1;
-        }
 
     }
+
+    public static String mostCommonWord(String p, String[] banned) {
+
+        HashSet<String> asd = new HashSet<>(Arrays.asList(banned));
+
+        HashMap<String, Integer> map = new HashMap<>();
+
+        // \W
+        String[] s = p.replaceAll("\\W+", " ").toLowerCase().split(" ");
+        for (String str : s) {
+            if(!asd.contains(str))
+                map.put(str, map.getOrDefault(str, 0) + 1);
+        }
+
+        System.out.println("s = " + map.entrySet());
+        List<Map.Entry<String, Integer>> list = new ArrayList<>(map.entrySet());
+
+        return Collections.max(list, Map.Entry.comparingByValue()).getKey();
+    }
+
+
 }
