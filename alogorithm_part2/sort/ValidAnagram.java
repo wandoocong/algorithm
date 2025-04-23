@@ -12,6 +12,7 @@ public class ValidAnagram {
     public static String sort(String s) {
         char[] chars = s.toCharArray();
         Arrays.sort(chars);
+        System.out.println("chars = " + Arrays.toString(chars));
         return new String(chars);
     }
 }
