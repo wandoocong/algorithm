@@ -28,22 +28,25 @@ public class TestSampleCode {
         stack.push(3);
         System.out.println("stack.getFirst() = " + stack.getFirst()); //3
         System.out.println("stack.getLast() = " + stack.getLast()); //1
+        System.out.println("stack.peekLast() = " + stack.peekLast()); //1
         System.out.println("stack.pop() = " + stack.pop()); //3
-
         System.out.println("####################################");
+
+
+
 
         // Comparator
         List<String> str = new ArrayList<>();
         str.add("ab");
         str.add("cd");
-        System.out.println("str = " + str);
+        System.out.println("before comparator= " + str);
         Collections.sort(str, new Comparator<String>() {
             @Override
             public int compare(String o1, String o2) {
                 return o2.compareTo(o1);
             }
         });
-        System.out.println("str = " + str);
+        System.out.println("after comparator= " + str);
 
         List<String> letterList = new ArrayList<>();
         letterList.add("asd");
@@ -51,5 +54,11 @@ public class TestSampleCode {
         letterList.add("FFA");
         Object[] letterObj = letterList.toArray(new String[0]);
         System.out.println("letterArr = " + Arrays.toString(letterObj));
+
+        int[][] arr2D={{1,3},{8,11},{2,6},{15,18}};
+        Arrays.sort(arr2D,Comparator.comparingInt(a->a[0]));
+        System.out.println("arr2D = " + Arrays.toString(arr2D[1]));
+        System.out.println("####################################");
+
     }
 }

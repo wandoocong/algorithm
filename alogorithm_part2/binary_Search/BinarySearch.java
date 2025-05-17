@@ -19,6 +19,9 @@ public class BinarySearch {
     public static int binarySearchW(int[] nums, int target, int left, int right) {
         if (left <= right) {
             int mid = left + (right - left) / 2;
+
+            // left 와 right 의 위치를 target 위치에 맞게 좁혀 나가는것,
+            // 좁히는 방법은 right, left 값을 mid 를 이용해서 조정
             if (nums[mid] < target) {
                 return binarySearchW(nums, target, mid + 1, right);
             } else if (nums[mid] > target) {
