@@ -1,4 +1,4 @@
-package arr;
+package algorithm_part1.arr;
 
 import java.util.*;
 
@@ -8,16 +8,15 @@ public class ThreeSum {
         int[] arr = {-4, -4, -4, -3, 2, -1, 8, 8};
         int[] arr2 = {-1, 0, 1, 2, -1, -5};
 
-        ThreeSum threeSum = new ThreeSum();
-        List<List<Integer>> lists = threeSum.threeSum(arr2);
-        System.out.println("threeSum = " + lists);
+        List<List<Integer>> lists = threeSum(arr2);
+        System.out.println("threeSum ~ = " + lists);
 
         /*List<List<Integer>> lists2 = threeSum.threeSum2(arr2);
         System.out.println("lists2 = " + lists2);*/
 
     }
 
-    public List<List<Integer>> threeSum(int[] nums) {
+    public static List<List<Integer>> threeSum(int[] nums) {
         int left, right, sum;
 
         List<List<Integer>> results = new ArrayList<>();

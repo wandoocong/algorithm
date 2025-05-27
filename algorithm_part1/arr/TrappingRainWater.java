@@ -1,17 +1,13 @@
-package arr;
-
-import java.awt.font.TransformAttribute;
+package algorithm_part1.arr;
 
 public class TrappingRainWater {
     public static void main(String[] args) {
         int[] arr = {1, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1};
-        TrappingRainWater trappingRainWater = new TrappingRainWater();
-
-        int answer = trappingRainWater.trap(arr);
+        int answer = trap(arr);
         System.out.println("answer = " + answer);
     }
 
-    public int trap(int[] height) {
+    public static int trap(int[] height) {
 
         int volume = 0;
         int left = 0;

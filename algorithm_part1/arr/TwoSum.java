@@ -1,4 +1,4 @@
-package arr;
+package algorithm_part1.arr;
 
 import java.util.*;
 
@@ -8,13 +8,12 @@ public class TwoSum {
         int[] nums = {2, 6, 11, 15};
         int target = 8;
 
-        TwoSum twoSum = new TwoSum();
-        int [] answer = twoSum.twoSum(nums, target);
+        int [] answer = twoSum(nums, target);
 
-        System.out.println("answer = " + Arrays.toString(answer));
+        System.out.println("answer~ = " + Arrays.toString(answer));
 
     }
-    public int[] twoSum(int[] nums, int target) {
+    public static int[] twoSum(int[] nums, int target) {
         Map<Integer, Integer> numsMap = new HashMap<>();
         for (int i = 0; i < nums.length; i++) {
             numsMap.put(nums[i], i);

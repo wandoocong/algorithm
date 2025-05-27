@@ -1,16 +1,14 @@
-package arr;
+package algorithm_part1.arr;
 
 import java.util.*;
 public class ArrayPartition {
     public static void main(String[] args) {
         int[] arr = {1, 3, 4, 2};
 
-        ArrayPartition arrayPartition = new ArrayPartition();
-        System.out.println("sum = " + arrayPartition.arrayPairSum(arr));
-        System.out.println("sum = " + arrayPartition.arrayPairSum2(arr));
+        System.out.println("sum = " + arrayPairSum(arr));
     }
 
-    public int arrayPairSum(int[] num) {
+    public static int arrayPairSum(int[] num) {
         List<Integer> pair = new ArrayList<>();
         int sum = 0;
 

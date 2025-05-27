@@ -1,16 +1,15 @@
-package arr;
+package algorithm_part1.arr;
 
 import java.util.*;
 public class ProductOfArrayExceptSelf {
     public static void main(String[] args) {
         int[] arr = {1, 3, 5, 7};
 
-        ProductOfArrayExceptSelf productOfArrayExceptSelf = new ProductOfArrayExceptSelf();
-        int [] answer = productOfArrayExceptSelf.productExceptSelf(arr);
+        int [] answer = productExceptSelf(arr);
         System.out.println("answer = " + Arrays.toString(answer));
     }
 
-    public int[] productExceptSelf(int[] nums) {
+    public static int[] productExceptSelf(int[] nums) {
         int[] result = new int[nums.length];
 
         int p = 1;
