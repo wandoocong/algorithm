@@ -20,6 +20,7 @@ public class TestSampleCode_List_Arr {
 
         ArrayList<Integer> testCopyList = new ArrayList<>(list);
         System.out.println("testCopyList = " + testCopyList);
+        list.sort((a, b) -> b - a);
         System.out.println("list = " + list);
 
         // 2. List.of 로 생성
@@ -35,6 +36,11 @@ public class TestSampleCode_List_Arr {
         System.out.println("ints = " + ints.get(0)[0]);
 
         System.out.println("####################################");
+
+        List<String> listStr = Arrays.asList("A", "B", "C");
+
+        listStr.sort((a,b) -> b.compareTo(a));
+        System.out.println("listStr = " + listStr);
 
     }
 
