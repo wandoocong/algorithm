@@ -18,7 +18,6 @@ public class Subsets {
         for (int i=index; i<nums.length; i++) {
             path.add(nums[i]);
             dfs(results, nums, i + 1, path);
-            
             path.removeLast();
         }
     }

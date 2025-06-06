@@ -9,6 +9,7 @@ public class Reconstruct_itinerary {
 
     public static void main(String[] args) {
 
+        // graph -> PQ 생성
         Map<String, PriorityQueue<String>> fromToMap = new HashMap<>();
         List<List<String>> tickets = new ArrayList<>();
 
@@ -36,13 +37,13 @@ public class Reconstruct_itinerary {
 
     public static void dfsW(List<String> results, Map<String, PriorityQueue<String>> fromToMap, String from) {
 
-        results.add(from);
+//        results.add(from);
 
         // fromToMap 에 특정 Key 값을 갖고 있고, 해당 value 값이 비어있지 않을때
         while (fromToMap.containsKey(from) && !fromToMap.get(from).isEmpty()) {
             dfsW(results, fromToMap, fromToMap.get(from).poll());
         }
         // 앞에다 추가
-//        results.add(0, from);
+        results.add(0, from);
     }
 }

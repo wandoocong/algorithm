@@ -12,6 +12,7 @@ public class CombinationSum {
 
         List<List<Integer>> results = new ArrayList<>();
         dfs(results, candidates, target, 0, new ArrayDeque<>());
+        System.out.println(target);
         System.out.println("results = " + results);
     }
 
